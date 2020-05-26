@@ -1,0 +1,31 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: ~/plugins/utopigs/localize/models/dateformat/columns.yaml
+
+# Model Class name
+modelClass: Utopigs\Localize\Models\DateFormat
+
+# List Title
+title: utopigs.localize::lang.dateformats.list
+
+# Link URL for each record
+recordUrl: utopigs/localize/dateformats/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Displays the sorting link on each column
+showSorting: false
+
+# Display checkboxes next to each record
+showCheckboxes: true
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: list_toolbar
+
+

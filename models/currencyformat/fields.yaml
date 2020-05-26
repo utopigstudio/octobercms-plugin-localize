@@ -1,0 +1,61 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    code:
+        label: utopigs.localize::lang.fields.code
+        span: left
+    is_function:
+        tab: utopigs.festival::lang.tabs.general
+        label: utopigs.localize::lang.fields.is_function
+        span: left
+        type: switch
+    function:
+        tab: utopigs.festival::lang.tabs.general
+        label: utopigs.localize::lang.fields.function
+        type: textarea
+        span: left
+        dependsOn: is_function
+    currency_symbol:
+        label: utopigs.localize::lang.fields.currency_symbol
+        span: left
+        default: '$'
+        dependsOn: is_function
+    prepend_symbol:
+        label: utopigs.localize::lang.fields.prepend_symbol
+        span: left
+        type: switch
+        default: true
+        dependsOn: is_function
+    force_decimals:
+        label: utopigs.localize::lang.fields.force_decimals
+        span: left
+        type: switch
+        default: true
+        dependsOn: is_function
+    decimals:
+        label: utopigs.localize::lang.fields.decimals
+        span: left
+        default: 2
+        dependsOn: is_function
+    sep_by_space:
+        label: utopigs.localize::lang.fields.sep_by_space
+        span: left
+        type: switch
+        default: false
+        dependsOn: is_function
+    dec_point:
+        label: utopigs.localize::lang.fields.dec_point
+        span: left
+        default: '.'
+        dependsOn: is_function
+    thousands_sep:
+        label: utopigs.localize::lang.fields.thousands_sep
+        span: left
+        default: ','
+        dependsOn: is_function
+    format_locales:
+        tab: utopigs.festival::lang.tabs.general
+        label: utopigs.localize::lang.fields.format_locales
+        type: partial

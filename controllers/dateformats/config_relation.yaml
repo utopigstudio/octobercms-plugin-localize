@@ -1,0 +1,12 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+format_locales:
+    label: utopigs.localize::lang.fields.format_locale
+    view:
+        list: $/utopigs/localize/models/dateformat_locale/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/utopigs/localize/models/dateformat_locale/fields.yaml
+        recordsPerPage: 10

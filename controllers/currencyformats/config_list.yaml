@@ -1,0 +1,31 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: ~/plugins/utopigs/localize/models/currencyformat/columns.yaml
+
+# Model Class name
+modelClass: Utopigs\Localize\Models\CurrencyFormat
+
+# List Title
+title: utopigs.localize::lang.currencyformats.list
+
+# Link URL for each record
+recordUrl: utopigs/localize/currencyformats/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Display checkboxes next to each record
+showCheckboxes: true
+
+# Displays the sorting link on each column
+showSorting: false
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: list_toolbar
+
+

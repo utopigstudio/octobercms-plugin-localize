@@ -1,0 +1,10 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    locale:
+        label: utopigs.localize::lang.columns.locale
+    format_or_function:
+        label: utopigs.localize::lang.columns.format
+

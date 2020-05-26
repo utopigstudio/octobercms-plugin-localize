@@ -1,0 +1,24 @@
+{
+    "name": "utopigs/localize",
+    "type": "october-plugin",
+    "description": "OctoberCMS plugin to format and localize dates and currencies",
+    "keywords": ["october", "octobercms", "date", "currency", "localization"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Utopig Studio",
+            "email": "info@utopigstudio.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/utopigstudio/octobercms-plugin-localize"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0"
+    },
+    "minimum-stability": "dev"
+}

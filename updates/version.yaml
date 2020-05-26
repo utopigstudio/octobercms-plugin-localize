@@ -1,0 +1,7 @@
+1.0.1:
+    - First version of Localize
+    - extend_rainlab_locale_with_localename.php
+    - create_dateformats_tables.php
+1.0.2:
+    - Add currency formats
+    - create_currencyformats_tables.php

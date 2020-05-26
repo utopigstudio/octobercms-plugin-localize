@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: utopigs.localize::lang.dateformats.single
+form: ~/plugins/utopigs/localize/models/dateformat/fields.yaml
+modelClass: Utopigs\Localize\Models\DateFormat
+defaultRedirect: utopigs/localize/dateformats
+
+create:
+    redirect: utopigs/localize/dateformats/update/:id
+    redirectClose: utopigs/localize/dateformats
+
+update:
+    redirect: utopigs/localize/dateformats
+    redirectClose: utopigs/localize/dateformats

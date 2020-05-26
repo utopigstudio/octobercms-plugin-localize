@@ -1,0 +1,25 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    locale:
+        label: utopigs.localize::lang.fields.locale
+        span: left
+        type: dropdown
+        emptyOption: utopigs.localize::lang.fields.no_selected
+    dateformat:
+        label: utopigs.localize::lang.fields.dateformat
+        span: left
+        dependsOn: is_function
+    function:
+        tab: utopigs.festival::lang.tabs.general
+        label: utopigs.localize::lang.fields.function
+        type: textarea
+        span: left
+        dependsOn: is_function
+    is_function:
+        tab: utopigs.festival::lang.tabs.general
+        label: utopigs.localize::lang.fields.is_function
+        span: left
+        type: switch

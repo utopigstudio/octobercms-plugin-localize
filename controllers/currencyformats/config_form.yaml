@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: utopigs.localize::lang.currencyformats.single
+form: ~/plugins/utopigs/localize/models/currencyformat/fields.yaml
+modelClass: Utopigs\Localize\Models\CurrencyFormat
+defaultRedirect: utopigs/localize/currencyformats
+
+create:
+    redirect: utopigs/localize/currencyformats/update/:id
+    redirectClose: utopigs/localize/currencyformats
+
+update:
+    redirect: utopigs/localize/currencyformats
+    redirectClose: utopigs/localize/currencyformats
