@@ -9,6 +9,7 @@ class CreateCurrencyformatsTables extends Migration
 
     public function up()
     {
+        Schema::dropIfExists('utopigs_localize_currencyformat_locales');
         Schema::dropIfExists('utopigs_localize_currencyformats');
 
         Schema::create('utopigs_localize_currencyformats', function($table)
@@ -75,6 +76,7 @@ class CreateCurrencyformatsTables extends Migration
 
     public function down()
     {
+        Schema::dropIfExists('utopigs_localize_currencyformat_locales');
         Schema::dropIfExists('utopigs_localize_currencyformats');
     }
 
