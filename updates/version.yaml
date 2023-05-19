@@ -1,7 +1,9 @@
-1.0.1:
+v1.0.1:
     - First version of Localize
     - extend_rainlab_locale_with_localename.php
     - create_dateformats_tables.php
-1.0.2:
+v1.0.2:
     - Add currency formats
     - create_currencyformats_tables.php
+v1.0.3:
+    - Fix version number format for OctoberCMS v3
