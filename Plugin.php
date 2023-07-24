@@ -3,8 +3,6 @@
 use System\Classes\PluginBase;
 use Backend;
 use Carbon\Carbon;
-use Yaml;
-use File;
 
 /**
  * Localize Plugin Information File
@@ -118,14 +116,16 @@ class Plugin extends PluginBase
 
     private function dateformat($value, $format)
     {
-        if (!$this->localename) {
+        if (!$this->localecode) {
             $localecode = \RainLab\Translate\Classes\Translator::instance()->getLocale();
-            $locale = \RainLab\Translate\Models\Locale::findByCode($localecode);
-            $this->localename = $locale->setlocale_localename ?? $localecode;
             $this->localecode = $localecode;
         }
 
-        $date = $this->localize($value);
+        if (strpos($value, ':') !== false) {
+            $date = Carbon::createFromFormat('Y-m-d H:i:s', $value);
+        } else {
+            $date = Carbon::createFromFormat('Y-m-d', $value);
+        }
 
         $localeFormat = $format->format_locales->firstWhere('locale', $this->localecode);
 
@@ -136,15 +136,13 @@ class Plugin extends PluginBase
             return $value;
         }
 
-        return $date->formatLocalized($dateFormat->dateformat);
+        return $date->locale($this->localecode)->isoFormat($dateFormat->dateformat);
     }
 
     private function currencyformat($value, $format)
     {
-        if (!$this->localename) {
+        if (!$this->localecode) {
             $localecode = \RainLab\Translate\Classes\Translator::instance()->getLocale();
-            $locale = \RainLab\Translate\Models\Locale::findByCode($localecode);
-            $this->localename = $locale->setlocale_localename ?? $localecode;
             $this->localecode = $localecode;
         }
 
@@ -166,54 +164,6 @@ class Plugin extends PluginBase
         }
 
         return $value_f;
-    }
-
-    private function localize($date)
-    {
-        if (strpos($date, ':') !== false) {
-            $date = Carbon::createFromFormat('Y-m-d H:i:s', $date);
-        } else {
-            $date = Carbon::createFromFormat('Y-m-d', $date);
-        }
-
-        setlocale(LC_TIME, $this->localename);
-        Carbon::setUtf8(true);
-
-        return $date;
-    }
-
-    public function boot()
-    {
-        $this->bootTranslateExtend();
-    }
-
-    /**
-     * Extend translate plugin
-     */
-    private function bootTranslateExtend()
-    {
-        if (class_exists("\RainLab\Translate\Models\Locale")) {
-
-            \RainLab\Translate\Models\Locale::extend(function($model) {
-                //add fields
-                $model->addFillable([
-                    'setlocale_localename'
-                ]);
-            });
-
-            //extend backend form with new fields
-            \Rainlab\Translate\Controllers\Locales::extendFormFields(function($widget) {
-                // Prevent extending of related form instead of the intended form
-                // prevent extending repeater fields
-                if (!$widget->model instanceof \RainLab\Translate\Models\Locale || $widget->isNested) {
-                    return;
-                }
-
-                $configFile = __DIR__ . '/models/locale/fields.yaml';
-                $config = Yaml::parse(File::get($configFile));
-                $widget->addFields($config);
-            });
-        }
     }
 
 }

@@ -1,7 +1,6 @@
 <?php namespace Utopigs\Localize\Models;
 
 use Model;
-use RainLab\Translate\Models\Locale;
 
 class CurrencyFormatLocale extends Model
 {
@@ -49,13 +48,21 @@ class CurrencyFormatLocale extends Model
 
     public function getLocaleOptions($value, $formData)
     {
-        $locales = Locale::lists('code', 'code');
+        // october 2
+        if (class_exists('\RainLab\Translate\Models\Locale')){
+            $locales = \RainLab\Translate\Models\Locale::listAvailable();
+        }
+        // october 3
+        else {
+            $locales = \RainLab\Translate\Classes\Locale::listAvailable();
+        }
+
         if (!$value) {
             $formatLocales = CurrencyFormatLocale::where('format_id', post('format_id'))->get()->toArray();
 
             if (is_array($formatLocales)) {
                 foreach ($formatLocales as $formats) {
-                    foreach ($locales as $code) {
+                    foreach ($locales as $code => $name) {
                         if ($formats['locale'] == $code) {
                             unset($locales[$code]);
                         }

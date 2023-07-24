@@ -6,16 +6,6 @@ It needs [Rainlab Translate](http://octobercms.com/plugin/rainlab-translate) plu
 
 You don't need to add any component in your theme. The plugin automatically creates filters that you can use in your pages and partials.
 
-## Mapping language codes to correct system locale codes
-
-The plugin extends the Rainlab Translate locales with another field that you can use to map the existing locales to the locales in your system, so the date format functions can work. For example, you could map your page locales like this:
-
-    en -> en_UK
-    es -> es_ES
-    fr -> fr_FR
-
-This can be done from the "Manage languages" section in Translate plugin settings.
-
 ## Creating formats
 
 The date and currency formats are managed from the plugin settings. Some examples are automatically created.

@@ -2,27 +2,32 @@
 
 use Schema;
 use October\Rain\Database\Updates\Migration;
-use RainLab\Translate\Models\Locale;
 
 class ExtendRainlabLocalesWithLocalename extends Migration
 {
 
     public function up()
     {
-        if (Schema::hasColumns('rainlab_translate_locales', [
-            'setlocale_localename',
-        ])) {
-            return;
-        }
+        // not needed anymore
+        // if (Schema::hasColumns('rainlab_translate_locales', [
+        //     'setlocale_localename',
+        // ])) {
+        //     return;
+        // }
 
-        Schema::table('rainlab_translate_locales', function($table) {
-            $table->string('setlocale_localename')->nullable();
-        });
-
+        // Schema::table('rainlab_translate_locales', function($table) {
+        //     $table->string('setlocale_localename')->nullable();
+        // });
     }
 
     public function down()
     {
+        // october 3
+        if (!Schema::hasTable('rainlab_translate_locales')) {
+            return;
+        }
+
+        // october 2
         Schema::table('rainlab_translate_locales', function($table) {
             $table->dropColumn('setlocale_localename');
         });

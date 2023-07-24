@@ -1,5 +1,5 @@
 {
-    "name": "utopigs/localize",
+    "name": "utopigs/localize-plugin",
     "type": "october-plugin",
     "description": "OctoberCMS plugin to format and localize dates and currencies",
     "keywords": ["october", "octobercms", "date", "currency", "localization"],
