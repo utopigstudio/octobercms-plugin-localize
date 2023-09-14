@@ -10,7 +10,7 @@ class ConvertDateformats extends Migration
     {
         $formats = \Utopigs\Localize\Models\DateFormat::all();
         $phpformats = ['%a',  '%A',   '%d', '%e', '%j',   '%u', '%w', '%U', '%V', '%W', '%b',  '%B',   '%h',  '%m', '%C', '%g', '%G', '%y', '%Y',   '%H', '%k', '%I', '%l', '%M', '%p', '%P', '%r',         '%R',    '%S', '%T',       '%X', '%z', '%Z', '%c',   '%D', '%F',         '%s', '%x', '%n', '%t', '%%'];
-        $mjsformats = ['ddd', 'dddd', 'MM', 'M',  'DDDD', 'E',  'd',  'ww', 'W',  'WW', 'MMM', 'MMMM', 'MMM', 'MM', '',   '',   '',   'YY', 'YYYY', 'HH', 'H',  'hh', 'h',  'mm', 'A',  'a',  'hh:mm:ss A', 'HH:mm', 'ss', 'HH:mm:ss', 'LTS', 'Z', 'z',  'llll', 'L',  'YYYY-MM-DD', 'X',  'L',  '',   '',   '%' ];
+        $mjsformats = ['ddd', 'dddd', 'DD', 'D',  'DDDD', 'E',  'd',  'ww', 'W',  'WW', 'MMM', 'MMMM', 'MMM', 'MM', '',   '',   '',   'YY', 'YYYY', 'HH', 'H',  'hh', 'h',  'mm', 'A',  'a',  'hh:mm:ss A', 'HH:mm', 'ss', 'HH:mm:ss', 'LTS', 'Z', 'z',  'llll', 'L',  'YYYY-MM-DD', 'X',  'L',  '',   '',   '%' ];
  
         foreach ($formats as $format) {
             $dateformat = $format->dateformat;
@@ -31,7 +31,7 @@ class ConvertDateformats extends Migration
     {
         $formats = \Utopigs\Localize\Models\DateFormat::all();
         $phpformats = ['%a',  '%A',   '%d', '%e', '%j',   '%u', '%w', '%U', '%V', '%W', '%b',  '%B',   '%h',  '%m', '%C', '%g', '%G', '%y', '%Y',   '%H', '%k', '%I', '%l', '%M', '%p', '%P', '%r',         '%R',    '%S', '%T',       '%X', '%z', '%Z', '%c',   '%D', '%F',         '%s', '%x', '%n', '%t', '%%'];
-        $mjsformats = ['ddd', 'dddd', 'MM', 'M',  'DDDD', 'E',  'd',  'ww', 'W',  'WW', 'MMM', 'MMMM', 'MMM', 'MM', '',   '',   '',   'YY', 'YYYY', 'HH', 'H',  'hh', 'h',  'mm', 'A',  'a',  'hh:mm:ss A', 'HH:mm', 'ss', 'HH:mm:ss', 'LTS', 'Z', 'z',  'llll', 'L',  'YYYY-MM-DD', 'X',  'L',  '',   '',   '%' ];
+        $mjsformats = ['ddd', 'dddd', 'DD', 'D',  'DDDD', 'E',  'd',  'ww', 'W',  'WW', 'MMM', 'MMMM', 'MMM', 'MM', '',   '',   '',   'YY', 'YYYY', 'HH', 'H',  'hh', 'h',  'mm', 'A',  'a',  'hh:mm:ss A', 'HH:mm', 'ss', 'HH:mm:ss', 'LTS', 'Z', 'z',  'llll', 'L',  'YYYY-MM-DD', 'X',  'L',  '',   '',   '%' ];
 
         foreach ($formats as $format) {
             $dateformat = $format->dateformat;
