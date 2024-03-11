@@ -121,22 +121,24 @@ class Plugin extends PluginBase
             $this->localecode = $localecode;
         }
 
-        if (strpos($value, ':') !== false) {
-            $date = Carbon::createFromFormat('Y-m-d H:i:s', $value);
-        } else {
-            $date = Carbon::createFromFormat('Y-m-d', $value);
+        if ($value) {
+            if (strpos($value, ':') !== false) {
+                $date = Carbon::createFromFormat('Y-m-d H:i:s', $value);
+            } else {
+                $date = Carbon::createFromFormat('Y-m-d', $value);
+            }
+    
+            $localeFormat = $format->format_locales->firstWhere('locale', $this->localecode);
+    
+            $dateFormat = $localeFormat ?? $format;
+    
+            if ($dateFormat->function) {
+                $value = eval($dateFormat->function);
+                return $value;
+            }
+    
+            return $date->locale($this->localecode)->isoFormat($dateFormat->dateformat);
         }
-
-        $localeFormat = $format->format_locales->firstWhere('locale', $this->localecode);
-
-        $dateFormat = $localeFormat ?? $format;
-
-        if ($dateFormat->function) {
-            $value = eval($dateFormat->function);
-            return $value;
-        }
-
-        return $date->locale($this->localecode)->isoFormat($dateFormat->dateformat);
     }
 
     private function currencyformat($value, $format)
